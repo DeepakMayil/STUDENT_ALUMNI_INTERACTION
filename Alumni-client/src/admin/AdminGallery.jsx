@@ -121,7 +121,45 @@ const AdminGallery = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {gallery && gallery.map((g, index) => (
+                    <tbody>
+                      {gallery && gallery.length > 0 ? (
+                        gallery.map((g, index) => (
+                          <tr key={index}>
+                            <td className="text-center">{index + 1}</td>
+                            <td>
+                              <img src={`${baseUrl}${g.image_path}`} className="gimg" alt="img" />
+                            </td>
+                            <td>{shortenAboutText(g.about, 30)}</td>
+                            <td style={{ verticalAlign: "middle" }} className="text-center">
+                              <div className="d-flex">
+                                <button
+                                  onClick={() => handleEdit(g.image_path, g.about, g.id)}
+                                  className="btn btn-sm btn-primary mr-2 edit_gallery"
+                                  type="button"
+                                >
+                                  Edit
+                                </button>
+                                <button
+                                  onClick={() => handleDelete(g.id)}
+                                  className="btn btn-sm btn-danger delete_gallery"
+                                  type="button"
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td className="text-center">
+                            No data available
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+
+                    {/* {gallery && gallery.map((g, index) => (
                       <tr key={index}>
                         <td className="text-center">{index + 1}</td>
                         <td>
@@ -136,7 +174,7 @@ const AdminGallery = () => {
                             <button onClick={() => handleDelete(g.id)} className="btn btn-sm btn-danger delete_gallery" type="button">Delete</button>
                           </div></td>
                       </tr>
-                    ))}
+                    ))} */}
                   </tbody>
 
                 </table>
