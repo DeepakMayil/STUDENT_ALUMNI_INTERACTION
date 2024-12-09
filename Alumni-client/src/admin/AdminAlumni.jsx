@@ -56,15 +56,6 @@ const AdminAlumni = () => {
                 <div className="card-body">
                   <div className="table-responsive">
                     <table className="table table-responsive-sm table-condensed table-bordered table-hover">
-
-                      {/* <colgroup>
-								<col width="5%"/>
-								<col width="10%"/>
-								<col width="15%"/>
-								<col width="15%"/>
-								<col width="30%"/>
-								<col width="15%"/>
-							</colgroup> */}
                       <thead>
                         <tr >
                           <th className="text-center">#</th>

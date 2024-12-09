@@ -5,6 +5,7 @@ import multer from "multer";
 import path from "path";
 import bcrypt from "bcrypt";
 import sendEmail from "../utils/mailer.js";
+import e from "express";
 
 const router = express.Router();
 
@@ -65,18 +66,6 @@ router.post("/login", (req, res) => {
     })
 })
 
-// router.post("/signup", (req, res) => {
-//     const sql = "INSERT INTO users(name,email,password,type) VALUES(?,?,?,?)";
-//     const { name, email, password, userType } = req.body;
-//     con.query(sql, [name, email, password, userType], (err, result) => {
-//         if (err) {
-//             console.error("Error executing SQL query:", err);
-//             return res.status(500).json({ error: "Query Error", signupStatus: false });
-//         }
-//         return res.json({ message: 'SignUp Successfull', userId: result.insertId, signupStatus: true });
-
-//     })
-// })
 router.post("/signup", async (req, res) => {
     const { name, email, password, userType, course_id } = req.body;
     try {
@@ -474,6 +463,15 @@ router.get("/users", (req, res) => {
     });
 });
 
+router.get("/alumnusdetails/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "SELECT * FROM alumnus_bio WHERE id=?";
+    con.query(sql, [id], (err, result) => {
+        if (err) return res.json({ Error: "Database error" });
+        return res.json(result); // Send the result back to the client
+    });
+});
+
 
 // router.post('/manageuser', (req, res) => {
 //     const { name, email, password } = req.body;
@@ -851,13 +849,13 @@ const getAllStudentEmails = () => {
       }
   
       try {
-        const emails = await getAllStudentEmails();
-        const subject = `New Job Posted: ${job_title}`;
-        const html = `A new job has been posted:<br><br>Company: ${company}<br>Title: ${job_title}<br>Location: ${location}<br>Description: ${description}`;
+        // const emails = await getAllStudentEmails();
+        // const subject = `New Job Posted: ${job_title}`;
+        // const html = `A new job has been posted:<br><br>Company: ${company}<br>Title: ${job_title}<br>Location: ${location}<br>Description: ${description}`;
   
-        await Promise.all(emails.map(email => sendEmail(email, subject, html)));
+        // await Promise.all(emails.map(email => sendEmail(email, subject, html)));
   
-        return res.json({ message: 'New job added successfully and emails sent', jobId: result.insertId });
+        return res.json({ message: 'New job added successfully', jobId: result.insertId });
       } catch (error) {
         console.error('Error fetching emails or sending email:', error);
         if (error.code === 'ENOTFOUND' || error.code === 'EAI_AGAIN') {

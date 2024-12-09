@@ -18,11 +18,12 @@ const MyAccount = () => {
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         const alumnus_id = localStorage.getItem("alumnus_id");
+        console.log(alumnus_id)
         const fetchData = async () => {
             try {
-                const alumnusDetailsRes = await axios.get(`${baseUrl}auth/alumnusdetails?id=${alumnus_id}`);
+                // const alumnusDetailsRes = await axios.get(`${baseUrl}auth/alumnusdetails?id=${alumnus_id}`);
+                const alumnusDetailsRes = await axios.get(`${baseUrl}auth/alumnusdetails/${alumnus_id}`);
                 const coursesRes = await axios.get(`${baseUrl}auth/courses`);
-
                 setAcc(alumnusDetailsRes.data[0]);
                 setCourses(coursesRes.data);
             } catch (error) {
@@ -94,7 +95,7 @@ const MyAccount = () => {
                 <div className="container-fluid h-100">
                     <div className="row h-100 align-items-center justify-content-center text-center">
                         <div className="col-lg-8 align-self-end mb-4 page-title">
-                            <h3 className="text-white">Manage Account</h3>
+                            <h3 className="text-white">Manage AccounT</h3>
                             <FaStar className='text-white ' />
                             <hr className="divider my-4" />
                         </div>

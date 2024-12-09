@@ -39,7 +39,6 @@ const Dashboard = () => {
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
             <main id="main" className={`main ${sidebarOpen ? 'sidebar-open' : ''}`}>
                 <Outlet />
-                {/* <h1>Hiiiiii</h1> */}
             </main>
         </>
     )

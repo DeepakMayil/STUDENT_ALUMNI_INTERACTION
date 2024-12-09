@@ -84,7 +84,7 @@ const Home = () => {
                         <h2 className="section-heading text-uppercase">Alumni Benefits</h2>
                         <h3 className=" card-title text-muted">As a member of the global PSNA alumni network, you have access to a variety of exclusive services and benefits.</h3>
                     </div>
-                    <div className="row">
+                    <div className="row justify-content-center">
                         <div className="col-lg-3 col-sm-6 mb-4">
                             <div className="card h-100 benefit-card">
                                 <div className="card-body text-center">
@@ -103,7 +103,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-sm-6 mb-4">
+                        {/* <div className="col-lg-3 col-sm-6 mb-4">
                             <div className="card h-100 benefit-card">
                                 <div className="card-body text-center">
                                     <FiTool size={40} className="mb-3 text-primary" />
@@ -111,7 +111,7 @@ const Home = () => {
                                     <p className="card-text">Access to sports facilities.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="col-lg-3 col-sm-6 mb-4">
                             <div className="card h-100 benefit-card">
                                 <div className="card-body text-center">

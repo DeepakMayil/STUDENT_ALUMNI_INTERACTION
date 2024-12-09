@@ -81,9 +81,9 @@ function AppRouter() {
         <Route path="/signup" element={<Signup />} />
         {isLoggedIn && isAdmin && (
           <Route path="/dashboard" element={
-            // <PrivateRoute>
+            <PrivateRoute>
             <Dashboard />
-            //  {/* </PrivateRoute> */}
+             </PrivateRoute>
           } >
             <Route path="" element={<AdminHome />} />
             <Route path="/dashboard/courses" element={<AdminCourses />} />
@@ -105,7 +105,7 @@ function AppRouter() {
         {isLoggedIn && <Route path="account" element={<MyAccount />} />}
         <Route path="forum/view" element={<View_Forum />} />
         <Route path="jobs/add" element={<ManageJobs />} />
-        {/* <Route path="jobs/add" element={<Manage_Career />} /> */}
+        <Route path="jobs/add" element={<Manage_Career />} />
 
       </Routes>
       {!isDashboardRoute && <Footer />}
