@@ -8,7 +8,7 @@ const About = () => {
 
 
   useEffect(() => {
-    // axios.get('http://localhost:3000/auth/settings')
+    axios.get('http://localhost:3000/auth/settings')
     axios.get(`${baseUrl}auth/settings`)
       .then((res) => {
         setSystem(res.data);
@@ -36,11 +36,7 @@ const About = () => {
     </div>
   </div>
 </header>
-
-
-
-
-      {/* {system.length > 0 && (
+      {system.length > 0 && (
         <section className="page-section">
           <div className="container">
             <h2 className='text-center'>{system[0].name}</h2>
@@ -48,7 +44,7 @@ const About = () => {
             <p dangerouslySetInnerHTML={{ __html: system[0].about_content }}></p>
           </div>
         </section>
-      )} */}
+      )}
     </>
   )
 }
